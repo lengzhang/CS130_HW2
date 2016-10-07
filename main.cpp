@@ -156,7 +156,7 @@ void draw_circle(int x, int y, int r)
 
     data[x][y] = 0xff0000ff;
     data[x+X][y+Y] = 0xffffffff;
-
+    data[x+X][y-Y] = 0xffffffff;
     while (X < Y)
     {
         if (D < 0)
@@ -170,14 +170,34 @@ void draw_circle(int x, int y, int r)
         }
         X++;
         data[x+X][y+Y] = 0xffffffff;
-	data[y+Y][x+X] = 0xffffffff;
-
         data[x+X][y-Y] = 0xffffffff;
-	
 	data[x-X][y+Y] = 0xffffffff;
 	data[x-X][y-Y] = 0xffffffff;
     }
-     
+
+    Y = 0;
+    X = r;
+    D = 3 - 2 * r;
+    
+    data[x+X][y+Y] = 0xffffffff;
+    data[x-X][y+Y] = 0xffffffff;
+    while (X > Y)
+    {
+	if (D < 0)
+	{
+		D = D + Y + Y + Y + Y + 6;
+	}
+	else
+	{
+		D = D + (Y - X) + (Y - X) + (Y - X) + (Y - X) + 10;
+		X--;
+	}
+	Y++;
+	data[x+X][y+Y] = 0xffffffff;
+        data[x+X][y-Y] = 0xffffffff;
+        data[x-X][y+Y] = 0xffffffff;
+        data[x-X][y-Y] = 0xffffffff;
+    }
     Dump_png(&data[0][0],512,512,"circle.png");
     
 }
