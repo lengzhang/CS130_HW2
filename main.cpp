@@ -149,14 +149,14 @@ void draw_circle(int x, int y, int r)
         for(int j = 0 ; j < 512; j++)
             data[i][j] = 0xff000000; // set all pixels to (0,0,0,1) = black.
 
-    data[x][y] = 0xffffffff;
+    data[x][y] = 0xff0000ff;
      
     // TODO: your code here
     int X = 0;
     int Y = r;
     int D = 3 - 2 * r;
 
-    data[x+X][y+Y] = 0xffffffff;
+    data[x+X][y+Y] = 0xff0000ff;
 
     while (X < Y)
     {
