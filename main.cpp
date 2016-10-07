@@ -208,7 +208,7 @@ void draw_circle(int x, int y, int r)
 	for (int i = y - Y + 1; i < y + Y; i++)
                 data[x+X][i] = 0xff0000ff;
 	for (int i = y - Y + 1; i < y + Y; i++)
-                data[x+X][i] = 0xff0000ff;
+                data[x-X][i] = 0xff0000ff;
     }
     Dump_png(&data[0][0],512,512,"circle.png");
     
