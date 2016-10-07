@@ -218,6 +218,8 @@ void draw_circle(int x, int y, int r)
 	{
 		data[x+i][y+Y] = 0xff0000ff;
 		data[x+i][y-Y] = 0xff0000ff;
+		data[x-i][y+Y] = 0xff0000ff;
+		data[x-i][y+Y] = 0xff0000ff;
 	}
     }
 
