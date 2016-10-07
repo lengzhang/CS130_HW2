@@ -186,8 +186,8 @@ void draw_circle(int x, int y, int r)
 	}
     }
 
-    Y = 0;
-    X = r;
+//    Y = 0;
+//    X = r;
     D = 3 - 2 * r;
     
     data[x+X][y+Y] = 0xffffffff;
@@ -216,8 +216,8 @@ void draw_circle(int x, int y, int r)
         data[x-X][y-Y] = 0xffffffff;
 	for (int i = maxX; i < maxX + X; i++)
 	{
-		data[x+i][y+Y] = 0xff0000ff;
-		data[x-i][y+Y] = 0xff0000ff;
+//		data[x+i][y+Y] = 0xff0000ff;
+//		data[x-i][y+Y] = 0xff0000ff;
 	}
     }
 
