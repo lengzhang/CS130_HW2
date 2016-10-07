@@ -217,7 +217,7 @@ void draw_circle(int x, int y, int r)
 	for (int i = maxX; i < X; i++)
 	{
 		data[x+i][y+Y] = 0xff0000ff;
-		data[x-i][y-Y] = 0xff0000ff;
+		data[x+i][y-Y] = 0xff0000ff;
 	}
     }
 
