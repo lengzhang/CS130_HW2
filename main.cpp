@@ -158,7 +158,7 @@ void draw_circle(int x, int y, int r)
     data[x+X][y+Y] = 0xffffffff;
     data[x+X][y-Y] = 0xffffffff;
     for (int i = y - Y + 1; i < y + Y; i++)
-                data[x+X][i] = 0xff0000ff;
+                data[x][i] = 0xff0000ff;
 
     while (X < Y)
     {
@@ -189,6 +189,9 @@ void draw_circle(int x, int y, int r)
     
     data[x+X][y+Y] = 0xffffffff;
     data[x-X][y+Y] = 0xffffffff;
+    for (int i = x - X + 1; i < x + X; i++)
+        data[i][y] = 0xff0000ff;
+
     while (X > Y)
     {
 	if (D < 0)
