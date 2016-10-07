@@ -148,6 +148,8 @@ void draw_circle(int x, int y, int r)
     for(int i = 0 ; i < 512; i++)
         for(int j = 0 ; j < 512; j++)
             data[i][j] = 0xff000000; // set all pixels to (0,0,0,1) = black.
+
+    data[x][y] = 0xffffffff;
      
     // TODO: your code here
     int X = 0;
