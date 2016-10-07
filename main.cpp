@@ -154,6 +154,7 @@ void draw_circle(int x, int y, int r)
     int Y = r;
     int D = 3 - 2 * r;
 
+    data[x][y] = 0xff0000ff;
     data[x+X][y+Y] = 0xffffffff;
 
     while (X < Y)
