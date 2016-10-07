@@ -149,7 +149,16 @@ void draw_circle(int x, int y, int r)
         for(int j = 0 ; j < 512; j++)
             data[i][j] = 0xff000000; // set all pixels to (0,0,0,1) = black.
      
-     // TODO: your code here
+    // TODO: your code here
+    for (int i = 0; i < r; ++i)
+    {
+        //To Right
+        data[x+i][y-i] = 0xffffffff;
+        data[x+i][-y+i] = 0xffffffff;
+        //To Left
+        data[x-i][y-i] = 0xffffffff;
+        data[x-i][-y+i] = 0xffffffff;
+    }
      
     Dump_png(&data[0][0],512,512,"circle.png");
 }
