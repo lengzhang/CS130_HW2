@@ -155,15 +155,14 @@ void draw_circle(int x, int y, int r)
     int maxX = 0;
     int D = 3 - 2 * r;
 
-    data[x][y] = 0xff0000ff;
     data[x+X][y+Y] = 0xffffffff;
     data[x+X][y-Y] = 0xffffffff;
     for (int i = y - Y + 1; i < y + Y; i++)
-                data[x][i] = 0xff0000ff;
+        data[x][i] = 0xff0000ff;
 
     while (X < Y)
     {
-	maxX = X;
+        maxX = X;
         if (D < 0)
         {
             D = D + X + X + X + X + 6;
@@ -177,13 +176,13 @@ void draw_circle(int x, int y, int r)
         data[x+X][y+Y] = 0xffffffff;
         data[x+X][y-Y] = 0xffffffff;
 
-	data[x-X][y+Y] = 0xffffffff;
-	data[x-X][y-Y] = 0xffffffff;
-	for (int i = y - Y + 1; i < y + Y; i++)
-	{
-		data[x+X][i] = 0xff0000ff;
-		data[x-X][i] = 0xff0000ff;
-	}
+    	data[x-X][y+Y] = 0xffffffff;
+    	data[x-X][y-Y] = 0xffffffff;
+    	for (int i = y - Y + 1; i < y + Y; i++)
+    	{
+    		data[x+X][i] = 0xff0000ff;
+    		data[x-X][i] = 0xff0000ff;
+    	}
     }
 
     Y = 0;
@@ -195,36 +194,36 @@ void draw_circle(int x, int y, int r)
     for (int i = maxX; i < r; i++)
     {
         data[x+i][y] = 0xff0000ff;
-	data[x-i][y] = 0xff0000ff;
+        data[x-i][y] = 0xff0000ff;
     }
 
     while (X > Y)
     {
-	if (D < 0)
-	{
-		D = D + Y + Y + Y + Y + 6;
-	}
-	else
-	{
-		D = D + (Y - X) + (Y - X) + (Y - X) + (Y - X) + 10;
-		X--;
-	}
-	Y++;
-	data[x+X][y+Y] = 0xffffffff;
+    	if (D < 0)
+    	{
+    		D = D + Y + Y + Y + Y + 6;
+    	}
+    	else
+    	{
+    		D = D + (Y - X) + (Y - X) + (Y - X) + (Y - X) + 10;
+    		X--;
+    	}
+    	Y++;
+    	data[x+X][y+Y] = 0xffffffff;
         data[x+X][y-Y] = 0xffffffff;
+
         data[x-X][y+Y] = 0xffffffff;
         data[x-X][y-Y] = 0xffffffff;
-	for (int i = maxX; i < X; i++)
-	{
-		data[x+i][y+Y] = 0xff0000ff;
-		data[x+i][y-Y] = 0xff0000ff;
-		data[x-i][y+Y] = 0xff0000ff;
-		data[x-i][y-Y] = 0xff0000ff;
-	}
-    }
 
+    	for (int i = maxX; i < X; i++)
+    	{
+    		data[x+i][y+Y] = 0xff0000ff;
+    		data[x+i][y-Y] = 0xff0000ff;
+    		data[x-i][y+Y] = 0xff0000ff;
+    		data[x-i][y-Y] = 0xff0000ff;
+        }
+    }
     Dump_png(&data[0][0],512,512,"circle.png");
-    
 }
 
 int main()
