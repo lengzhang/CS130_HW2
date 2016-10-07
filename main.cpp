@@ -173,7 +173,7 @@ void draw_circle(int x, int y, int r)
     }
      
     Dump_png(&data[0][0],512,512,"circle.png");
-    }
+    
 }
 
 int main()
