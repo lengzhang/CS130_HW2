@@ -153,11 +153,11 @@ void draw_circle(int x, int y, int r)
     for (int i = 0; i < r; ++i)
     {
         //To Right
-        data[x+i][y-i] = 0xffffffff;
-        data[x+i][-y+i] = 0xffffffff;
+        data[x+i][y+r-i] = 0xffffffff;
+        data[x+i][y-r+i] = 0xffffffff;
         //To Left
-        data[x-i][y-i] = 0xffffffff;
-        data[x-i][-y+i] = 0xffffffff;
+        data[x-i][y+r-i] = 0xffffffff;
+        data[x-i][y-r+i] = 0xffffffff;
     }
      
     Dump_png(&data[0][0],512,512,"circle.png");
