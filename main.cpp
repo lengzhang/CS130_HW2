@@ -169,7 +169,7 @@ void draw_circle(int x, int y, int r)
         }
         X++;
         data[x+X][y+Y] = 0xffffffff;
-	data[y+Y][x+X] = 0xffffffff;
+//	data[y+Y][x+X] = 0xffffffff;
 
 //        data[x+X][y-Y] = 0xffffffff;
 	
