@@ -152,6 +152,7 @@ void draw_circle(int x, int y, int r)
     // TODO: your code here
     int X = 0;
     int Y = r;
+    int maxX = 0;
     int D = 3 - 2 * r;
 
     data[x][y] = 0xff0000ff;
@@ -162,6 +163,7 @@ void draw_circle(int x, int y, int r)
 
     while (X < Y)
     {
+	maxX = X;
         if (D < 0)
         {
             D = D + X + X + X + X + 6;
@@ -174,13 +176,14 @@ void draw_circle(int x, int y, int r)
         X++;
         data[x+X][y+Y] = 0xffffffff;
         data[x+X][y-Y] = 0xffffffff;
-	for (int i = y - Y + 1; i < y + Y; i++)
-		data[x+X][i] = 0xff0000ff;
 
 	data[x-X][y+Y] = 0xffffffff;
 	data[x-X][y-Y] = 0xffffffff;
 	for (int i = y - Y + 1; i < y + Y; i++)
-		data[x-X][i] = 0xff0000ff;
+	{
+//		data[x+X][i] = 0xff0000ff;
+//		data[x-X][i] = 0xff0000ff;
+	}
     }
 
     Y = 0;
@@ -189,8 +192,10 @@ void draw_circle(int x, int y, int r)
     
     data[x+X][y+Y] = 0xffffffff;
     data[x-X][y+Y] = 0xffffffff;
-    for (int i = x - X + 1; i < x + X; i++)
-        data[i][y] = 0xff0000ff;
+    for (int i = maxX; i < r; i++)
+    {
+        data[x + i][y] = 0xff0000ff;
+    }
 
     while (X > Y)
     {
