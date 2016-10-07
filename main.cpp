@@ -171,8 +171,13 @@ void draw_circle(int x, int y, int r)
         X++;
         data[x+X][y+Y] = 0xffffffff;
         data[x+X][y-Y] = 0xffffffff;
+	for (int i = y - Y + 1; i < y + Y; i++)
+		data[x+X][i] = 0xff0000ff;
+
 	data[x-X][y+Y] = 0xffffffff;
 	data[x-X][y-Y] = 0xffffffff;
+	for (int i = y - Y + 1; i < y + Y; i++)
+                data[x-X][i] = 0xff0000ff;
     }
 
     Y = 0;
